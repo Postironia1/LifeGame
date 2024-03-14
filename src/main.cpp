@@ -3,6 +3,7 @@
 #include <random>
 #include <cmath>
 #include <algorithm>
+#include <memory>
 
 const int N = 20;
 
