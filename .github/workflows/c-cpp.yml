@@ -1,0 +1,29 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up C++ build environment
+      uses: actions/setup-cxx@v2
+      with:
+        compiler: g++-11
+        cxx-version: 17
+
+    - name: Build
+      run: make
+
+    - name: Test
+      run: ./main 
